@@ -338,9 +338,13 @@ export default function App() {
                   </a>
                 </div>
                 <div className="flex justify-start md:justify-end gap-4">
-                  <Facebook className="w-6 h-6 hover:text-brand cursor-pointer" />
-                  <Instagram className="w-6 h-6 hover:text-brand cursor-pointer" />
-                  <Music2 className="w-6 h-6 hover:text-brand cursor-pointer" />
+                  <a href="https://www.facebook.com/profile.php?id=61588031116137" target="_blank" rel="noopener noreferrer">
+                    <Facebook className="w-6 h-6 hover:text-brand cursor-pointer transition-colors" />
+                  </a>
+                  <a href="https://www.instagram.com/freshcutnarsingdi/?hl=en" target="_blank" rel="noopener noreferrer">
+                    <Instagram className="w-6 h-6 hover:text-brand cursor-pointer transition-colors" />
+                  </a>
+                  <Music2 className="w-6 h-6 hover:text-brand cursor-pointer transition-colors" />
                 </div>
                 <div className="space-y-2">
                   <p className="text-[10px] font-black uppercase tracking-widest text-white/40">© FRESHCUT NARSINGDI 2026</p>
