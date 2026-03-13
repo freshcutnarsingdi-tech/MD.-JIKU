@@ -34,7 +34,7 @@ export default function App() {
       title: "Home Made Noodles",
       price: "99 TK",
       description: "Crafted with tradition. Our noodles are prepared daily using premium flour and farm-fresh eggs, tossed with seasonal greens and a hint of secret spices.",
-      image: "https://storage.googleapis.com/aistudio-build-assets/azhrchnxpa5wwl4fhnptan/input_file_1.png",
+      image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80",
       tag: "Signature Dish",
       prepTime: "15-20 MIN",
       serving: "1 PERSON",
@@ -45,7 +45,7 @@ export default function App() {
       title: "Chicken Biryani",
       price: "199 TK",
       description: "A royal feast. Our signature biryani features long-grain basmati rice, tender Pakistani chicken, and aromatic spices slow-cooked to perfection.",
-      image: "https://storage.googleapis.com/aistudio-build-assets/azhrchnxpa5wwl4fhnptan/input_file_0.png",
+      image: "https://i.imgur.com/DxOVLxv.jpg",
       tag: "Ramadhan Special",
       prepTime: "25-30 MIN",
       serving: "1 PERSON",
@@ -121,52 +121,86 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <main className="relative pt-32">
-        <section className="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden">
+      <main className="relative">
+        <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+          {/* Background Layer */}
           <div className="absolute inset-0 z-0">
             <img
               src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=2000"
               alt="Premium Kitchen"
-              className="w-full h-full object-cover opacity-50"
+              className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+            {/* Multi-layered overlay for depth and readability */}
+            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent hidden md:block" />
           </div>
 
-          <div className="container mx-auto px-6 relative z-10 flex flex-col items-center md:items-end text-center md:text-right">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-3xl"
-            >
-              <div className="inline-block bg-brand text-black px-4 py-1 font-black text-[10px] uppercase tracking-[0.2em] mb-4">
-                100% Home-Based Cloud Kitchen
-              </div>
-              <h1 className="font-display text-5xl md:text-9xl leading-[0.85] tracking-tighter mb-6">
-                NOTHING BEATS A <br />
-                <span className="text-brand">HOME-COOKED FEAST</span>
-              </h1>
-              <p className="text-base md:text-xl text-white/80 max-w-md md:ml-auto mb-8 font-medium">
-                Gourmet quality delivered safely to your door. <br className="hidden md:block" />
-                Experience the revolution of home dining in Narsingdi.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4">
-                <motion.button 
-                  onClick={() => setShowMenu(true)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto bg-brand text-black px-10 py-4 rounded-full font-display text-xl tracking-tight uppercase"
-                >
-                  Order Now
-                </motion.button>
-              </div>
-            </motion.div>
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-4xl md:ml-auto text-center md:text-right">
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <div className="inline-flex items-center gap-2 bg-brand/10 backdrop-blur-md border border-brand/20 text-brand px-4 py-2 rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.3em] mb-8">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
+                  </span>
+                  100% Home-Based Cloud Kitchen
+                </div>
+                
+                <h1 className="font-display text-[2.75rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[1] md:leading-[0.85] tracking-tight md:tracking-tighter mb-8">
+                  NOTHING BEATS A <br />
+                  <span className="text-brand uppercase inline-block mt-2">Home-Cooked Feast</span>
+                </h1>
+                
+                <p className="text-lg md:text-2xl text-white/90 max-w-2xl md:ml-auto mb-12 font-medium leading-relaxed">
+                  Gourmet quality, family tradition, and farm-fresh ingredients delivered safely to your door. 
+                  <span className="hidden md:inline"> Experience the revolution of home dining in Narsingdi.</span>
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-6">
+                  <motion.button 
+                    onClick={() => setShowMenu(true)}
+                    whileHover={{ scale: 1.02, backgroundColor: "#FFFFFF" }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full sm:w-auto bg-brand text-black px-12 py-5 rounded-full font-display text-2xl tracking-tight uppercase transition-colors shadow-2xl shadow-brand/20"
+                  >
+                    Order Now
+                  </motion.button>
+                  
+                  <button 
+                    onClick={() => {
+                      const el = document.getElementById('signature');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="text-white/60 hover:text-brand font-display text-xl uppercase tracking-widest transition-colors flex items-center gap-2 group"
+                  >
+                    Explore Menu
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </motion.div>
+            </div>
           </div>
+
+          {/* Scroll Indicator */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2"
+          >
+            <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-black">Scroll</span>
+            <div className="w-[1px] h-12 bg-gradient-to-b from-brand to-transparent" />
+          </motion.div>
         </section>
 
         {/* Featured Items - Brutalist Style */}
-        <section className="py-20 md:py-32 bg-black">
+        <section id="signature" className="py-20 md:py-32 bg-black">
           <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b-4 border-brand pb-4 gap-4">
               <div className="space-y-2">
@@ -237,7 +271,7 @@ export default function App() {
         <section className="py-20 md:py-32 bg-brand">
           <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <h2 className="font-display text-6xl md:text-8xl text-black leading-none tracking-tighter mb-6 md:mb-8">
+              <h2 className="font-display text-6xl md:text-8xl text-black leading-[1.1] md:leading-none tracking-tighter mb-6 md:mb-8">
                 JOIN THE <br />REVOLUTION
               </h2>
               <p className="text-black text-lg md:text-xl font-bold uppercase tracking-tight max-w-md">
